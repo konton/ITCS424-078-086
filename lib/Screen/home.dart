@@ -8,25 +8,36 @@ class HomeScreen extends StatelessWidget{
       appBar: AppBar(
         title: Text("Login page"),
       ),
-      body: Padding(
-        padding: const EdgeInsets.fromLTRB(30, 10, 30, 0),
+      body: Container(
+        padding: const EdgeInsets.fromLTRB(30, 100, 30, 0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.asset('assets/157391.jpg', width: 300,),
-            Padding(padding: EdgeInsets.fromLTRB(50, 10, 30, 0)),
+            Image.asset('assets/11.png', width: 300,),
+            const Padding(padding: EdgeInsets.fromLTRB(50, 10, 30, 0)),
             TextField(
               style:  Theme.of(context).textTheme.bodyText1,
+              obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Username',
                 icon: Icon(Icons.person),
+                fillColor: Colors.white,
+                filled: true,
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
+
               ),
+
             ),
+            Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 5)),
             TextField(
               style:  Theme.of(context).textTheme.bodyText1,
+
               decoration: InputDecoration(
-                labelText: 'Login',
+                labelText: 'Password',
                 icon: Icon(Icons.vpn_key),
+                fillColor: Colors.white,
+                filled: true,
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
               ),
             ),
             SizedBox(
@@ -34,8 +45,8 @@ class HomeScreen extends StatelessWidget{
               child: ElevatedButton.icon(onPressed: (){
 
               },
-                  icon: Icon(Icons.login),
-                  label: Text("Login")),
+                  icon: const Icon(Icons.login),
+                  label: const Text("Login")),
             ),
             SizedBox(
               width: 150,
@@ -43,8 +54,8 @@ class HomeScreen extends StatelessWidget{
               child: ElevatedButton.icon(onPressed: (){
 
               },
-                  icon: Icon(Icons.add),
-                  label: Text("Register")),
+                  icon: const Icon(Icons.add),
+                  label: const Text("Register")),
             ),
           ],
         ),
