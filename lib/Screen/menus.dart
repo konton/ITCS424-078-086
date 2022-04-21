@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:kcal/Screen/drinks.dart';
+import 'package:kcal/Screen/koreanfood.dart';
 import 'package:kcal/Screen/thaifood.dart';
 
 class menus extends StatefulWidget {
@@ -15,53 +16,94 @@ class menusearch extends State<menus>{
       appBar: AppBar(
           title: Text("Select menu")
       ),
-      body: Align(
-        alignment: Alignment.center,
-        child: SingleChildScrollView(
+        body: Column(
+          children: <Widget>[
 
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Padding(padding: EdgeInsets.fromLTRB(50, 10, 30, 0)),
-              SizedBox(
-                child: ElevatedButton(
-                  child: Text(
-                    "Thai Food",
-                    style: TextStyle(fontSize: 20),
+            Row(children: [
+              Container(
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width-20,
+                  height: 100,
+                  child: ElevatedButton(
+                    child: Text(
+                      "Thaifood",
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                            return thaifood();
+                          }));
+                    },
                   ),
-                  onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context){
-                          return thaifood();
-
-                        })
-                    );
-                  },
                 ),
               ),
-              SizedBox(
-                child: ElevatedButton(
-                  child: Text(
-                    "Drink",
-                    style: TextStyle(fontSize: 20),
+
+            ]
+            ),
+            const SizedBox(height: 12,),
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width-20,
+                    height: 100,
+                    child: ElevatedButton(
+                      child: Text(
+                        "Drinks",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                              return drinks();
+                            }));
+                      },
+                    ),
                   ),
-                  onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context){
-                          return drinks()
-                          ;
-                        })
-                    );
-                  },
-                ),
-              )
-            ],
+                )
+              ],
+            ),
+            const SizedBox(height: 12,),
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width-20,
+                    height: 100,
+                    child: ElevatedButton(
+                      child: Text(
+                        "Korean Food",
+                        style: TextStyle(fontSize: 20),
+                      ),
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                              return koreanfood();
+                            }));
+                      },
+                    ),
+                  ),
+                )
+              ],
+            ),
+            Row(
+              children: [
+                Container(
+                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                  child: Image.asset(
+                    'assets/11.png',
+                    width: MediaQuery.of(context).size.width-20,
+                  ),
+                )
+              ],
+            )
 
-          ),
-        ),
-
-
-      ),
+          ],
+        )
     );
   }
 
